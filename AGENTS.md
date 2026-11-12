@@ -23,6 +23,10 @@ development. There is no build, no tests, and no package manifest — the delive
 
 ## Facts worth remembering
 
+- Installation is via `npx skills add axetroy/dsh-plugin-skills`. The CLI discovers a skill at the
+  repository root when `SKILL.md` sits there — no `skills/` subdirectory is needed.
+- Because the CLI clones the whole repo, keep `AGENTS.md` and `README.md` here; they are installed
+  alongside the skill but are not loaded by agents.
 - Upstream docs site: <https://deepseek-harness.github.io/deepseek-harness/> (VitePress, bilingual).
   The site source is `docs/` in <https://github.com/deepseek-ai/deepseek-harness>; the rendered site
   has no sitemap, so enumerate pages by following `href="/deepseek-harness/..."` links.

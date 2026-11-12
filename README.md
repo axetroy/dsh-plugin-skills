@@ -4,6 +4,44 @@
 
 DSH 的插件框架是 Cordis：插件是一个导出 `apply` 函数的 TypeScript 模块，通过 `ctx` 注册工具、service、事件与 LLM adapter，卸载时自动回收。
 
+## 安装
+
+推荐用 [`skills` CLI](https://github.com/vercel-labs/skills)（Vercel Labs 出品的 agent skills 生态 CLI）安装。它支持 Claude Code、Codex、Cursor、OpenCode 等 80 多个 agent，会自动把技能放进对应 agent 的 skills 目录。
+
+要求 Node.js **22.20 或更高版本**。在你的项目目录下执行：
+
+```sh
+npx skills add axetroy/dsh-plugin-skills
+```
+
+交互式安装会让你选择要装的技能与目标 agent。常用变体：
+
+```sh
+# 只装到指定 agent
+npx skills add axetroy/dsh-plugin-skills -a claude-code
+
+# 装到全局（所有项目可用），非交互
+npx skills add axetroy/dsh-plugin-skills -g -y
+
+# 先看看仓库里有哪些技能，不安装
+npx skills add axetroy/dsh-plugin-skills --list
+```
+
+默认装到**当前项目**的 `.agents/skills/`（可随项目提交、团队共享）；加 `-g` 装到用户目录（跨项目可用）。
+
+安装后用 `npx skills list` 查看，用 `npx skills update dsh-plugin-skills` 更新，用 `npx skills remove dsh-plugin-skills` 卸载。
+
+### 手动安装
+
+不想用 CLI 时，直接把技能目录放进 agent 的 skills 目录即可：
+
+```sh
+git clone --depth 1 https://github.com/axetroy/dsh-plugin-skills.git \
+  ~/.claude/skills/dsh-plugin-skills
+```
+
+把路径换成你所用 agent 的 skills 目录。技能名必须与目录名一致（`dsh-plugin-skills`）。
+
 ## 内容
 
 ```
